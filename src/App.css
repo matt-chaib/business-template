@@ -14,6 +14,10 @@
   font-size: 1.2rem;
 }
 
+.about-text {
+  text-align: justify;
+}
+
 body {
   background-color: #fff;
   margin: 0;
@@ -58,13 +62,27 @@ body {
   }
 }
 
+.services-page-container {
+  color: black;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
 @media (min-width: 992px) {
 .mobile-nav-container {
   display: none !important;
 }
 
+.services-page-container {
+  color: black;
+  padding: 3rem 20rem;
+  display: flex;
+  flex-direction: column;
+}
+
 .about-page-container {
-  padding: 8rem 12rem;
+  padding: 3rem 20rem;
   color: black
 }
 }
@@ -113,6 +131,8 @@ body {
   padding: 0;
   list-style: none;
   width: 100%;
+  font-size: 1.4rem;
+  padding-bottom: 0.5rem;
 }
 
 .mobile-nav-container {
@@ -170,6 +190,16 @@ body {
   object-position: center center;
 }
 
+  /* .hero-background-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     backdrop-filter: saturate(80%);
+  } */
+
 .hero-overlay {
   width: 100%;
     height: 133.33vw;
@@ -184,7 +214,13 @@ body {
   ;
       height: 60%;
       align-items: center;
-      padding: 1rem;
+      padding: 2rem;
+      z-index: 2; /* Ensures text is above overlay */
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      /* color: black */
+
+
 }
 
 .desktop-nav-container {
@@ -222,9 +258,80 @@ body {
   }
 }
 
+.services-summary-container {
+  padding: 1rem 2rem;
+  color: black;
+  font-size: 1.1rem;
+}
+
+.decription-container {
+  text-align: justify;
+  padding: 3rem 3rem;
+  color: black;
+  font-size: 1.2rem;
+}
+
+.services-summary-container > h3 {
+  font-size: 1.5rem;
+  margin: 0.2rem 0em;
+}
+
+.services-summary {
+  display: flex;
+  flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+  gap: 5px 15px; /* Adds space between boxes */
+}
+
+.service-box {
+  flex: 1 1 calc(50% - 20px); /* 50% width minus gap */
+  background: #9dd984;
+  padding: 10px;
+  text-align: center;
+  border-radius: 3px;
+  margin: 0.5rem 0.2rem;
+}
+
 @media (min-width: 768px) {
   .mobile-container {
       display: none;
+  }
+
+  .services-summary-container {
+    padding: 3rem 12rem;
+    color: black;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .decription-container {
+    padding: 3rem 12rem;
+    color: black;
+    font-size: 1.2rem;
+  }
+  
+  .services-summary-container > h3 {
+    font-size: 3rem;
+    margin: 1rem 0em;
+  }
+  
+  .services-summary {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .service-box {
+    flex: 1 1 calc(50% - 20px); /* 50% width minus gap */
+    max-width: 400px;
+    background: #9dd984;
+    padding: 10px;
+    text-align: center;
+    border-radius: 3px;
+    margin: 0.5rem 0.2rem;
+  }
+  
+  .service-box {
+    font-size: 2rem;
   }
 }
 
@@ -238,33 +345,6 @@ body {
 
 .desktop-navlinks {
   display: none;
-}
-
-.services-summary-container {
-  padding: 3rem 12rem;
-  color: black;
-  font-size: 1.2rem;
-}
-
-.decription-container {
-  padding: 3rem 12rem;
-  color: black;
-  font-size: 1.2rem;
-}
-
-.services-summary-container > h3 {
-  font-size: 3rem;
-  margin: 1rem 0em;
-}
-
-.services-summary {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5rem 8rem;
-}
-
-.service-box {
-  font-size: 2rem;
 }
 
 footer {
@@ -446,18 +526,16 @@ html, body, #root {
   margin: 0 auto;
 }
 
-.photo-and-text-container {
-  display: flex;
-  flex: 1 1;
-  gap: 2rem;
-}
 
 .photo-and-text-container {
   display: flex;
   flex: 1 1;
-  gap: 2rem;
+  gap: 1rem;
 }
 
+.photo-and-text-container > div > h2 {
+  margin-top: 0;
+}
 
 
 .service-box-text {
@@ -470,12 +548,6 @@ html, body, #root {
   flex: 1 1;
 }
 
-.services-page-container {
-  color: black;
-  padding: 2rem 3rem;
-  display: flex;
-  flex-direction: column;
-}
 .service-box-container {
   display: flex;
   flex-direction: column;
@@ -484,6 +556,7 @@ html, body, #root {
 
 .image-container {
   width: 800px;
+  min-width: 300px;
   height: 300px;
   overflow: hidden;
 }
@@ -510,7 +583,7 @@ html, body, #root {
 
   .image-container {
     width: 80vw;
-    height: 20vh;
+    height: 30vh;
     overflow: hidden;
   }
 }

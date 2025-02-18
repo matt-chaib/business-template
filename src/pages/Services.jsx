@@ -19,10 +19,10 @@ export default function Services() {
     ]
     return (
         <div className="services-page-container">
-            <h1>Services</h1>
+            <h1>Our Services</h1>
             <div className="service-box-container">
                 {services.map((service, index) => {
-                    return (<PhotoAndText text={service.text} title={service.title} imagePath={service.imagePath} left={index % 2 == 0}/>)
+                    return (<PhotoAndText key={index} text={service.text} title={service.title} imagePath={service.imagePath} left={index % 2 == 0}/>)
                 })}
             </div>
         </div>

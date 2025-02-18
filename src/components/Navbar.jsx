@@ -38,6 +38,8 @@ export function Navbar() {
                 <div className={`drawer`}>
                   <nav id="drawer-container" className={`${clicked ? "menu-drawer drawer-checked" : "menu-drawer drawer-container"}`}>
                     <ul>
+                    <NavLink className="NavLink" to="/"><div className="logo">Sheffield Landscaping</div></NavLink>
+                    <br></br>
                     <li><NavLink className="NavLink" to="/services">Services</NavLink></li>
                     <li><NavLink className="NavLink" to="/about">About</NavLink></li>
                     <li><NavLink className="NavLink" to="/faq">FAQ</NavLink></li>
