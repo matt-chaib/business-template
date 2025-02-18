@@ -1,34 +1,54 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "./Navbar.scss";
+import "../App.css";
 
 export function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+    const [clicked, setClicked] = useState(false)
 
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <div className="navbar-brand">MyCompany</div>
-        
-        {/* Burger Menu for Mobile */}
-        <button 
-          className={`burger-menu ${menuOpen ? "open" : ""}`} 
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </button>
-
-        {/* Navigation Links */}
-        <div className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <NavLink to="/" end className="nav-item">Home</NavLink>
-          <NavLink to="/trending" className="nav-item">Trending Concerts</NavLink>
-          <NavLink to="/concerts" className="nav-item">All Concerts</NavLink>
-          <NavLink to="/account" className="nav-item">Account</NavLink>
+    <div className="header-container">
+    <nav className="header-menu">
+        <div className="header-items">
+            <div className="desktop-nav-container">
+                <div className="desktop-nav-logo-and-links">
+                    <NavLink className="NavLink" to="/"><div className="logo">Sheffield Landscaping</div></NavLink>
+                </div>
+                <div>
+                <ul className="desktop-navlinks">
+                    <li><NavLink className="NavLink" to="/services">Services</NavLink></li>
+                    <li><NavLink className="NavLink" to="/about">About</NavLink></li>
+                    <li><NavLink className="NavLink" to="/faq">FAQ</NavLink></li>
+                    <li><div className="NavLink">example@email.com or 0123456789</div></li>
+                    </ul>
+                </div>
+            </div>
+            <div className="mobile-nav-container">
+                <div className="mobile-nav-left">
+                <NavLink className="NavLink" to="/"><div className="logo">Sheffield Landscaping</div></NavLink>
+                </div>
+                <div className="mobile-nav-right">
+                <button onClick={() => setClicked(!clicked)} className="mobile-nav-menu-button Button_icon">
+                <div className={`MenuIcon_menuIcon ${clicked ? "mobile-menu-open" : ""}`}>
+                      <span className="MenuIcon_bar"></span>
+                      <span className="MenuIcon_bar"></span>
+                      <span className="MenuIcon_bar"></span>
+                    </div>
+                  </button>
+                </div>
+                <div className={`drawer`}>
+                  <nav id="drawer-container" className={`${clicked ? "menu-drawer drawer-checked" : "menu-drawer drawer-container"}`}>
+                    <ul>
+                    <li><NavLink className="NavLink" to="/services">Services</NavLink></li>
+                    <li><NavLink className="NavLink" to="/about">About</NavLink></li>
+                    <li><NavLink className="NavLink" to="/faq">FAQ</NavLink></li>
+                    <li><div className="NavLink">example@email.com or 0123456789</div></li>
+                    </ul>
+                  </nav>
+                
+                </div>
+            </div>
         </div>
-      </div>
     </nav>
+</div>
   );
 }
